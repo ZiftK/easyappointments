@@ -1,0 +1,23 @@
+services:  
+  nginx:
+    ports: !reset[]
+
+  mysql:
+    ports: !reset[]
+
+  phpmyadmin:
+    ports: !reset[]
+  mailpit:
+    ports: !reset[]
+
+  swagger-ui:
+    ports: !reset[]
+  
+  baikal:
+    ports: !reset[]
+    
+  openldap:
+    ports: !reset[]
+  phpldapadmin:
+    ports: !reset[]
+
