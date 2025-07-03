@@ -2,6 +2,11 @@ FROM php:8.4-fpm
 
 WORKDIR "/var/www/html"
 
+COPY . /var/www/html
+
+COPY docker/php-fpm/start-container /usr/local/bin/start-container
+RUN chmod +x /usr/local/bin/start-container
+
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         git \
@@ -26,4 +31,4 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-CMD ["bash", "docker/php-fpm/start-container"]
+CMD ["/usr/local/bin/start-container"]
