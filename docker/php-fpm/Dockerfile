@@ -2,9 +2,7 @@ FROM php:8.4-fpm
 
 WORKDIR "/var/www/html"
 
-COPY . /var/www/html
-
-COPY docker/php-fpm/start-container /usr/local/bin/start-container
+COPY start-container /usr/local/bin/start-container
 RUN chmod +x /usr/local/bin/start-container
 
 RUN apt-get update \
