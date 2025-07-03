@@ -5,6 +5,8 @@ WORKDIR "/var/www/html"
 COPY start-container /usr/local/bin/start-container
 RUN chmod +x /usr/local/bin/start-container
 
+COPY ../../.. /var/www/html
+
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         git \
