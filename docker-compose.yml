@@ -2,10 +2,11 @@ services:
   php-fpm:
     build: docker/php-fpm
     working_dir: /var/www/html
+    command: ["bash", "/var/www/html/docker/php-fpm/start-container"]
     extra_hosts:
       - host.docker.internal:host-gateway
     volumes:
-      - './storage:/var/www/html/storage'
+      - '.:/var/www/html'
       - './docker/php-fpm/php-ini-overrides.ini:/usr/local/etc/php/conf.d/99-overrides.ini'
 
   nginx:
