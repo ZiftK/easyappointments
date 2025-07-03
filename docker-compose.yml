@@ -1,11 +1,13 @@
 services:
   php-fpm:
-    build: docker/php-fpm
+    build:
+      context: .
+      dockerfile: docker/php-fpm/Dockerfile
     working_dir: /var/www/html
     extra_hosts:
       - host.docker.internal:host-gateway
     volumes:
-      - './docker/php-fpm/php-ini-overrides.ini:/usr/local/etc/php/conf.d/99-overrides.ini'
+      - ./docker/php-fpm/php-ini-overrides.ini:/usr/local/etc/php/conf.d/99-overrides.ini
 
   nginx:
     image: 'nginx:1.23.3-alpine'
